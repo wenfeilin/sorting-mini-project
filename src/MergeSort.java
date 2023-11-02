@@ -32,13 +32,28 @@ public class MergeSort implements Sorter {
   // | Methods |
   // +---------+
 
+  /**
+   * Sort an array using the merge sort algorithm.
+   * 
+   * @param values The array being sorted according to the comparator.
+   * @param order The comparator that will determine the order values will be sorted in.
+   * @post The array will be sorted completely according to the comparator.
+   */
   @Override
   public <T> void sort(T[] values, Comparator<? super T> order) {
     mergeSort(values, order, 0, values.length);
-  } // sort(T[], Comparator<? super T>
+  } // sort(T[], Comparator<? super T>)
 
   /**
-   * Sort an array using the merge sort algorithm.
+   * Recursively divides the array being sorted into subarrays that will be 
+   * sorted then merged (combined) back together.
+   * 
+   * @param values The original array being sorted.
+   * @param order The comparator that determines the order the array will be sorted in.
+   * @param lo The lowest index (inclusive) of the array.
+   * @param hi The highest index (exclusive) of the array.
+   * @post The array will be sorted completely (depending on lo and hi) 
+   *       according to the comparator.
    */
   private static <T> void mergeSort(T[] values, Comparator<? super T> order, int lo, int hi) {
     if (hi - lo <= 1) {
@@ -46,7 +61,7 @@ public class MergeSort implements Sorter {
     } else {
       int mid = lo + (hi - lo) / 2;
 
-      mergeSort(values, order, lo, mid);
+      mergeSort(values, order, lo, mid); 
       mergeSort(values, order, mid, hi);
   
       merge(values, lo, mid, hi, order);
@@ -57,7 +72,14 @@ public class MergeSort implements Sorter {
    * Merge the values from positions [lo..mid) and [mid..hi) back into
    * the same part of the array.
    *
-   * Preconditions: Each subarray is sorted accorting to comparator.
+   * @param vals The original array being sorted.
+   * @param lo The lowest index (inclusive) of the subarray.
+   * @param mid The middle index of the subarray.
+   * @param hi The highest index (exclusive) of the subarray.
+   * @param order The comparator that determines the order the array will be sorted in.
+   * @pre Each subarray is sorted accorting to comparator.
+   * @post The subarray from lo (inclusive) to hi (exlusive) in vals will be sorted 
+   *       according to the comparator order.
    */
   private static <T> void merge(T[] vals, int lo, int mid, int hi, Comparator<? super T> order) {
     T[] newVals = Arrays.copyOfRange(vals, lo, hi);
