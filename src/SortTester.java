@@ -1,10 +1,5 @@
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
-import java.math.BigInteger;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -109,4 +104,11 @@ public class SortTester {
     assertArrayEquals(original, expected);
   } // halvesSortedTest
 
+  @Test
+  public void sameElements() {
+    String[] original = { "delta", "delta", "delta", "delta" };
+    String[] expected = { "delta", "delta", "delta", "delta" };
+    sorter.sort(original, (x, y) -> x.compareTo(y));
+    assertArrayEquals(original, expected);
+  } // sameElements
 } // class SortTester
