@@ -11,5 +11,4 @@ public class InsertionSortTester extends SortTester {
     super();
     this.sorter = InsertionSort.SORTER;
   } // InsertionSortTester()
-
 } // class InsertionSortTester

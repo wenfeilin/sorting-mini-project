@@ -23,4 +23,3 @@ public interface Sorter {
    */
   public <T> void sort(T[] values, Comparator<? super T> order);
 } // interface Sorter
-

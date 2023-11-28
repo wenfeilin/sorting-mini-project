@@ -11,6 +11,4 @@ public class LinWenfeiTester extends SortTester {
     super();
     this.sorter = LinWenfeiSort.SORTER;
   } // LinWenfeiTester()
-
 } // class LinWenfeiTester
-

@@ -11,5 +11,4 @@ public class QuicksortTester extends SortTester {
     super();
     this.sorter = Quicksort.SORTER;
   } // QuicksortTester()
-
 } // class QuicksortTester

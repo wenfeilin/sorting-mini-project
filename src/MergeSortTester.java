@@ -11,5 +11,4 @@ public class MergeSortTester extends SortTester {
     super();
     this.sorter = MergeSort.SORTER;
   } // MergeSortTester()
-
 } // class MergeSortTester
